@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd ~/Documents/TFM/alignment_all
+cd ~/Documents/TFM/OC_TFM/alignment
 
 for SAMPLE in OC1_L001 OC1_L002 OC1_L003 OC1_L004 OC2_L001 OC2_L002 OC2_L003 OC2_L004 \
 OC3_L001 OC3_L002 OC3_L003 OC3_L004 OC4_L001 OC4_L002 OC4_L003 OC4_L004 \
