@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-cd ~/Documents/TFM
-mkdir ~/Documents/TFM/results/bqsr_germline
+cd ~/Documents/TFM/OC_TFM/results
+mkdir ~/Documents/TFM/OC_TFM/results/bqsr_germline
+cd ~/Documents/TFM/OC_TFM
 
 for SAMPLE in OC1_L001 OC1_L002 OC1_L003 OC1_L004 OC2_L001 OC2_L002 OC2_L003 OC2_L004 \
 OC3_L001 OC3_L002 OC3_L003 OC3_L004 OC4_L001 OC4_L002 OC4_L003 OC4_L004 \
@@ -13,14 +14,15 @@ OC13_L001 OC13_L002
 do
 
 gatk BaseRecalibrator \
---reference data/reference/hg19.fasta \
---input alignment_all/"$SAMPLE".rg.md.bam \
---known-sites data/variants/gnomad.exomes.r2.1.1.sites.vcf \
---known-sites data/variants/1000GENOMES-phase_3.vcf \
+--reference ~/Documents/TFM/data/reference/hg19.fasta \
+--input alignment/"$SAMPLE".rg.md.bam \
+--known-sites data/variants/test/renamed_Axiom_Exome_plus_hg19.vcf.gz \
+--known-sites data/variants/test/renamed.hg19-v0-Mills_and_1000G_gold_standard.indels.b37.sites.vcf \
+--known-sites data/variants/test/renamed_hg19-v0-Homo_sapiens_assembly19.dbsnp138.vcf \
 --output results/bqsr_germline/"$SAMPLE".recal.table
 
 gatk ApplyBQSR \
---input alignment_all/"$SAMPLE".rg.md.bam \
+--input alignment/"$SAMPLE".rg.md.bam \
 --bqsr-recal-file results/bqsr_germline/"$SAMPLE".recal.table \
 --output results/bqsr_germline/"$SAMPLE".recal.bam
 done
