@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-cd ~/Documents/TFM/data 
+cd ~/Documents/TFM/OC_TFM/data/variants/test 
 
-gatk IndexFeatureFile -F variants/gnomad.exomes.r2.1.1.sites.vcf.gz 
+gatk IndexFeatureFile -F renamed_Axiom_Exome_plus_hg19.vcf.gz 
 
-gatk IndexFeatureFile -F variants/1000GENOMES-phase_3.vcf
+gatk IndexFeatureFile -F renamed.hg19-v0-Mills_and_1000G_gold_standard.indels.b37.sites.vcf
 
-gatk IndexFeatureFile -F variants/homo_sapiens_somatic_incl_consequences.vcf
+gatk IndexFeatureFile -F renamed_hg19-v0-Homo_sapiens_assembly19.dbsnp138.vcf
