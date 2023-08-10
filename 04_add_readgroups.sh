@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-cd ~/Documents/TFM/results
+cd ~/Documents/TFM/OC_TFM/alignment
 
 cat sample_rg_fields.txt | while read SAMPLE LB PU ID
 do
   gatk AddOrReplaceReadGroups \
-  --INPUT ~/Documents/TFM/alignment_all/"$SAMPLE".bam \
-  --OUTPUT ~/Documents/TFM/alignment_all/"$SAMPLE".rg.bam \
+  --INPUT "$SAMPLE".bam \
+  --OUTPUT "$SAMPLE".rg.bam \
   --RGLB "$LB" \
   --RGPU "$PU" \
   --RGPL ILLUMINA \
