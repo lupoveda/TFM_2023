@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd ~/Documents/TFM/
+cd ~/Documents/TFM/OC_TFM
 
 for SAMPLE in OC1_L001 OC1_L002 OC1_L003 OC1_L004 OC2_L001 OC2_L002 OC2_L003 OC2_L004 \
 OC3_L001 OC3_L002 OC3_L003 OC3_L004 OC4_L001 OC4_L002 OC4_L003 OC4_L004 \
@@ -12,8 +12,8 @@ OC13_L001 OC13_L002
 do
 
     gatk MarkDuplicates \
-    --INPUT alignment_all/"$SAMPLE".rg.bam \
-    --OUTPUT alignment_all/"$SAMPLE".rg.md.bam \
-    --METRICS_FILE alignment_all/marked_dup_metrics_"$SAMPLE".txt 
+    --INPUT alignment/"$SAMPLE".rg.bam \
+    --OUTPUT alignment/"$SAMPLE".rg.md.bam \
+    --METRICS_FILE alignment/marked_dup_metrics_"$SAMPLE".txt 
 done
 
