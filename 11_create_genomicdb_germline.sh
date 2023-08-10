@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd ~/Documents/TFM
+cd ~/Documents/TFM/OC_TFM
 
 #Database was created
 
