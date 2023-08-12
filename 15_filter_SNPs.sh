@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd ~/Documents/TFM/results/variants_germline
+cd ~/Documents/TFM/OC_TFM/results/variants_germline
 
 gatk VariantFiltration \
 --variant germline_OCcohort.SNP.vcf \
