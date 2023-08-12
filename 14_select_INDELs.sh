@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd ~/Documents/TFM
+cd ~/Documents/TFM/OC_TFM
 
 gatk SelectVariants \
 --variant results/variants_germline/germline_OCcohort.vcf \
