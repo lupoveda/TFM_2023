@@ -29,7 +29,7 @@ do
     --variant results/variants_somatic/"$SAMPLE".unfiltered_pon.vcf \
     --intervals data/target_regions/intervals.list \ #Genomic intervals over which to operate
     --ob-priors results/variants_somatic/"$SAMPLE".read-orientation-model.tar.gz \ #To detect artifacts due to FFPE treatment of sample
-    --output results/variants_somatic/"$SAMPLE".filtered_pon.vcf #Filtered somati variants detected
+    --output results/variants_somatic/"$SAMPLE".filtered_pon.vcf #Filtered somatic variants detected
 
    gatk VariantsToTable \ 
     --variant results/variants_somatic/"$SAMPLE".filtered_pon.vcf \
