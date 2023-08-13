@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 cd ~/Documents/TFM/OC_TFM/results/variants_germline
+#In this step we filter according to the values recommended by the Best practices of the GATK suite.
 
 gatk VariantFiltration \
 --variant germline_OCcohort.SNP.vcf \
@@ -11,4 +12,4 @@ gatk VariantFiltration \
 --filter-expression "MQ < 40.0"             --filter-name "MQ40" \
 --filter-expression "MQRankSum < -12.5"     --filter-name "MQRankSum-12.5" \
 --filter-expression "ReadPosRankSum < -8.0" --filter-name "ReadPosRankSum-8" \
---output germline_OCcohort.SNP.filtered.vcf
+--output germline_OCcohort.SNP.filtered.vcf #output file of the fileterd SNPs
