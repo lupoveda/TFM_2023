@@ -8,7 +8,7 @@ gatk IndexFeatureFile -I renamed_somatic-af-only-gnomad.raw.sites.vcf.gz #Indexi
 gatk IndexFeatureFile -I renamed_somatic-b37-Mutect2-exome-panel.vcf #Indexing of the vcf file
 
 gatk CreateSomaticPanelOfNormals \
--R ~Documents/TFM/data/reference/hg19.fasta \ #Reference used for this analysis
+-R ~Documents/TFM/data/reference/hg19.fasta \ #Reference used for this analysis - ref_fasta, ref_fai, ref_dict: reference genome, index, and dictionary
 --germline-resource renamed_somatic-af-only-gnomad.raw.sites.vcf.gz \ #vcf containing known germline variation sites in the population, from the GnomAd database
 -V renamed_somatic-b37-Mutect2-exome-panel.vcf \ #vcf containing known variation sites from the exome panels of dbSNP
 -O pon.vcf.gz #output file name given to this panel of normals
