@@ -12,15 +12,16 @@ OC11_L001 OC11_L002 OC11_L003 OC11_L004 OC12_L001 OC12_L002 OC12_L003 OC12_L004 
 OC13_L001 OC13_L002
 do
 
-    gatk HaplotypeCaller \
-    --reference ~/Documents/TFM/data/reference/hg19.fasta \
-    --input results/bqsr_germline/"$SAMPLE".recal.bam \
+    gatk HaplotypeCaller \ #Calls germline SNPs and indels via local re-assembly of haplotypes. It can call SNPs and indels simultaneously via local de-novo assembly of haplotypes in an active region
+    --reference ~/Documents/TFM/data/reference/hg19.fasta \ #reference used
+    --input results/bqsr_germline/"$SAMPLE".recal.bam \ 
     --output results/variants_germline/"$SAMPLE".HC.g.vcf \
     --bam-output results/variants_germline/"$SAMPLE".phased.bam \
-    --intervals chr13:7564997-7590956 \
+    --intervals chr13:7564997-7590956 \ #The program determines which regions of the genome it needs to operate on (active regions), based on the presence of evidence for variation. 
     --intervals chr17:32889123-32974505 \
     --intervals chr17:41196212-41322362 \
     --emit-ref-confidence GVCF
 done
 
-
+#More Information: https://gatk.broadinstitute.org/hc/en-us/articles/360037225632-HaplotypeCaller
+# the GVCF workflow used in this script allows for scalable variant calling in DNA sequence data, HaplotypeCaller runs per-sample to generate an intermediate GVCF, which can then be used in GenotypeGVCFs for joint genotyping of multiple samples in a very efficient way. 
