@@ -8,3 +8,5 @@ gatk GenotypeGVCFs \ #Perform joint genotyping on one or more samples pre-called
 --variant gendb://results/genomicsdb_germline \ # A VCF file containing variants - the input samples possess genotype likelihoods produced by HaplotypeCaller with `-ERC GVCF` 
 --intervals data/target_regions/intervals.list \ # Genomic intervals over which to operate - BRCA2, tp53 and BRCA1
 --output results/variants_germline/germline_OCcohort.vcf # File to which variants should be written
+
+#More information: https://gatk.broadinstitute.org/hc/en-us/articles/360037057852-GenotypeGVCFs
