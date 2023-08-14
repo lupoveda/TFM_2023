@@ -13,6 +13,8 @@ gatk VariantFiltration \
 --filter-expression "MQRankSum < -12.5"     --filter-name "MQRankSum-12.5" \
 --filter-expression "ReadPosRankSum < -8.0" --filter-name "ReadPosRankSum-8" \
 --output germline_OCcohort.SNP.filtered.vcf #output file of the fileterd SNPs
+
+#Information on the chosen parameters
 #QD - QualByDepth- is the variant confidence (from the QUAL field) divided by the unfiltered depth of non-hom-ref samples. This annotation is intended to normalize the variant quality in order to avoid inflation caused when there is deep coverage. 
 #QUAL - Quality score - Phred score - the hard filtering will remove any variants where the read has a phred score lower than Q30. 
 #SOR - StrandOddsRatio - way to estimate strand bias using a test similar to the symmetric odds ratio test. SOR was created because FS tends to penalize variants that occur at the ends of exons.hard filtering recommendation of failing variants with an SOR value greater than 3 will at least remove the long tail of variants that show fairly clear bias according to the SOR test
