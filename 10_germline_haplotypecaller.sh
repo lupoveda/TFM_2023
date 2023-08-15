@@ -17,10 +17,10 @@ do
     --input results/bqsr_germline/"$SAMPLE".recal.bam \ 
     --output results/variants_germline/"$SAMPLE".HC.g.vcf \
     --bam-output results/variants_germline/"$SAMPLE".phased.bam \
-    --intervals chr13:7564997-7590956 \ #The program determines which regions of the genome it needs to operate on (active regions), based on the presence of evidence for variation. 
-    --intervals chr17:32889123-32974505 \
-    --intervals chr17:41196212-41322362 \
-    --emit-ref-confidence GVCF
+    --intervals chr13:7564997-7590956 \ #BRCA2 -The program determines which regions of the genome it needs to operate on (active regions), based on the presence of evidence for variation. 
+    --intervals chr17:32889123-32974505 \ #tp53
+    --intervals chr17:41196212-41322362 \ #BRCA1
+    --emit-ref-confidence GVCF #output is in gvcf format
 done
 
 #More Information: https://gatk.broadinstitute.org/hc/en-us/articles/360037225632-HaplotypeCaller
