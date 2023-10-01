@@ -1,15 +1,24 @@
 #!/usr/bin/env bash
 
-cd ~/Documents/TFM/OC_TFM/results/variants_germline
+cd ~/Documents/TFM/OC_TFM/results/variants_germline #Cambio y especificamos el directorio
+
 #Filtered with parameters taken from the recommendations on the best practices from the GATK suite
 
-gatk VariantFiltration \
+gatk VariantFiltration \ #Con la herramienta de GATK se filtran los INDELS de acuerdo con las pautas para INDELS para Hard filtering
 --variant germline_OCcohort.INDEL.vcf \
 --filter-expression "QD < 2.0"                  --filter-name "QD2" \
 --filter-expression "QUAL < 30.0"               --filter-name "QUAL30" \
 --filter-expression "FS > 200.0"                --filter-name "FS200" \
 --filter-expression "ReadPosRankSum < -20.0"    --filter-name "ReadPosRankSum-20" \
 --output germline_OCcohort.INDEL.filtered.vcf #gvcf file containing the filtered called INDELs
+
+# Información sobre los parámetros elegidos para INDELs, ligeramente menos estrictos que para SNPs
+# QD - QualByDepth - es la confianza de la variante (del campo QUAL) dividida por la profundidad no filtrada de las muestras no homocigotas de referencia. Esta anotación tiene como objetivo normalizar la calidad de la variante para evitar la inflación causada cuando hay una cobertura profunda.
+# QUAL - Puntuación de calidad - Puntuación de Phred - el filtrado riguroso eliminará cualquier variante en la que la lectura tenga una puntuación de Phred inferior a Q30.
+# FS - FisherStrand - es la probabilidad en escala Phred de que exista un sesgo de hebra en el sitio. la variante alternativa se observó más o menos a menudo en la hebra hacia adelante o hacia atrás que la variante de referencia. Cuando hay poco o ningún sesgo de hebra en el sitio, el valor de FS estará cerca de 0. Las recomendaciones de filtrado riguroso de GATK apuntan a eliminar variantes con un valor de FS superior a 200.
+# MQ - calidad de mapeo de la raíz cuadrada media sobre todas las lecturas en el sitio - esta anotación da la raíz cuadrada del promedio de los cuadrados de las calidades de mapeo en el sitio. Está destinado a incluir la desviación estándar de las calidades de mapeo. Incluir la desviación estándar nos permite incluir la variación en el conjunto de datos. Cuando las calidades de mapeo son buenas en un sitio, MQ estará alrededor de 60. La recomendación de GATK es eliminar cualquier variante con un valor de MQ menor que 40.0.
+# ReadPosRankSum - aproximación z basada en U del Rank Sum Test para la posición del sitio dentro de las lecturas. Compara si las posiciones de las variantes de referencia y alternativas son diferentes dentro de las lecturas. El umbral de filtrado riguroso elimina cualquier variante con un valor de ReadPosRankSum menor que -20.0.
+# Más información sobre el filtrado riguroso en las pautas de mejores prácticas de GATK:  https://gatk.broadinstitute.org/hc/en-us/articles/360035890471-Hard-filtering-germline-short-variants
 
 #Information on the chosen parameters for INDELs, slightly looser parameters than for SNPs
 #QD - QualByDepth- is the variant confidence (from the QUAL field) divided by the unfiltered depth of non-hom-ref samples. This annotation is intended to normalize the variant quality in order to avoid inflation caused when there is deep coverage. 
