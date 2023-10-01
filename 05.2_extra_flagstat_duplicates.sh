@@ -12,8 +12,10 @@ OC11_L001 OC11_L002 OC11_L003 OC11_L004 OC12_L001 OC12_L002 OC12_L003 OC12_L004 
 OC13_L001 OC13_L002
 do
 
-#Este comando de Samtools genera estadísticas de mapeo para el archivo BAM de la muestra actual. Las estadísticas incluyen información sobre las lecturas mapeadas, las lecturas no mapeadas, las lecturas duplicadas
-samtools flagstat "$SAMPLE".rg.md.bam > "$SAMPLE".rg.md.bam.flagstat #Redirige la salida de las estadísticas de mapeo generadas por Samtools a un archivo de texto con el nombre de la muestra actual y el sufijo ".rg.md.bam.flagstat"
+#Este comando de Samtools genera estadísticas de mapeo para el archivo BAM de la muestra actual. 
+#Las estadísticas incluyen información sobre las lecturas mapeadas, las lecturas no mapeadas, las lecturas duplicadas
+samtools flagstat "$SAMPLE".rg.md.bam > "$SAMPLE".rg.md.bam.flagstat #Redirige la salida de las estadísticas de mapeo generadas por Samtools 
+# a un archivo de texto con el nombre de la muestra actual y el sufijo ".rg.md.bam.flagstat"
 done
 
 
