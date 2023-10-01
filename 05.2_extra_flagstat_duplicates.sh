@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd ~/Documents/TFM/OC_TFM/alignment #Cambia el directorio actual al camino especificado
+cd ~/Documents/TFM/OC_TFM/alignment #Cambia el directorio actual al directorio especificado
 
 #El bucle for se utiliza para iterar a través de una lista de nombres de muestra
 for SAMPLE in OC1_L001 OC1_L002 OC1_L003 OC1_L004 OC2_L001 OC2_L002 OC2_L003 OC2_L004 \
